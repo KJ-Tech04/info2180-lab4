@@ -1,14 +1,35 @@
 <!DOCTYPE html>
-<html lan="en">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Avengers Character Search</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>INFO2180 Lab 4</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js"></script>
 </head>
 <body>
+  <header>
     <h1>Avengers Character Search</h1>
-    <button id="search-btn">Search</button>
+  </header>
 
-    <script src="app.js"></script>
+  <main>
+    <div class="content-wrapper">
+
+      <p class="label">Search by Full Name or Alias</p>
+
+      <form id="search-form">
+        <div class="search-box">
+          <input type="text" id="search" placeholder="e.g. Captain America or Steve Rogers">
+          <button type="submit" id="search-btn">Search</button>
+        </div>
+      </form>
+
+      <h2>Result</h2>
+      <hr>
+
+      <div id="result"></div>
+
+    </div>
+  </main>
+
 </body>
-</html> 
+</html>

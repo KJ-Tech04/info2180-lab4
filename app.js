@@ -1,14 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const button = document.getElementById('search-btn');
+  const form = document.getElementById('search-form');
+  const input = document.getElementById('search');
+  const resultDiv = document.getElementById('result');
 
-    button.addEventListener('click', () => {
-        fetch('superheroes.php')
-            .then(response => response.text())
-            .then(data => {
-                alert(data);
-            })
-            .catch(error => {
-                console.error('Error fetching superheroes:', error);
-            });
-        });
-    });
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const query = encodeURIComponent(input.value.trim());
+
+    fetch(`superheroes.php?query=${query}`)
+      .then(response => response.text())
+      .then(data => {
+        resultDiv.innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        resultDiv.innerHTML = '<p>Something went wrong. Please try again.</p>';
+      });
+  });
+});
